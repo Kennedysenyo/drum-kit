@@ -6,12 +6,16 @@ const drumButtons = document.querySelectorAll(".drum");
 for(i = 0; i < drumButtons.length; i++) {  
   drumButtons[i].addEventListener("click", function () {
     playSound(this.classList[0])   
+
+    buttonAnimation(this.classList[0])
   }
 );
 }
 
 document.addEventListener("keypress", function (event) {
-  playSound(event.key)
+  playSound(event.key);
+
+  nuttonAnimation(event.key)
 });
 
 function playSound(key) {
@@ -45,4 +49,14 @@ function playSound(key) {
     audio.play();
     break;
   }
+}
+
+function buttonAnimation(currentKey) {
+
+  let activeButton = document.querySelector(`.${currentKey}`);
+  activeButton.classList.add("pressed");
+
+  setTimeout(function() {
+    activeButton.classList.remove("pressed");
+  }, 100);
 }
