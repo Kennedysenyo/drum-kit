@@ -15,7 +15,7 @@ for(i = 0; i < drumButtons.length; i++) {
 document.addEventListener("keypress", function (event) {
   playSound(event.key);
 
-  nuttonAnimation(event.key)
+  buttonAnimation(event.key)
 });
 
 function playSound(key) {
